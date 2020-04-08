@@ -11,12 +11,6 @@ RUN apt-get update && \
 RUN npm install -g typescript
 RUN npm install -g aws-cdk
 
-RUN cd /tmp && \
-    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
-    unzip -q awscliv2.zip && \
-    ./aws/install && \
-    rm -rf awscliv2.zip aws
-
 ADD entrypoint /entrypoint
 
 ENTRYPOINT [ "/entrypoint" ]
