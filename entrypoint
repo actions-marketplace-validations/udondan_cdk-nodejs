@@ -4,6 +4,8 @@ set -eo pipefail
 
 cd "${DIR}" || exit
 
+echo "CDK version $(cdk version)"
+
 npm i
 npm run build
 
