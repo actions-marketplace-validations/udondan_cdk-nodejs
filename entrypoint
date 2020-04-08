@@ -5,6 +5,8 @@ set -eo pipefail
 cd "${DIR}" || exit
 
 npm i
+npm run build
 
+[ -n "${COMMAND}" ] && ${COMMAND}
 # shellcheck disable=SC2048
-$*
+[ -z "${COMMAND}" ] && $*

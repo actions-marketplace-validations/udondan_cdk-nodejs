@@ -21,3 +21,8 @@ inputs:
     description: AWS Region to send the request to
     required: false
     default: us-east-1
+
+  COMMAND:
+    description: The command to execute, defaults to deploy
+    required: false
+    default: cdk deploy --require-approval never
