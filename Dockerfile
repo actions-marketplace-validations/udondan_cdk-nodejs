@@ -22,3 +22,5 @@ RUN cd /tmp && \
 ADD entrypoint /entrypoint
 
 ENTRYPOINT [ "/entrypoint" ]
+
+CMD [ "cdk", "deploy", "--require-approval", "never" ]
