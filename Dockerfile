@@ -4,8 +4,6 @@ LABEL MAINTAINER="Daniel Schroeder <deemes79@googlemail.com>"
 
 ENV AWS_DEFAULT_REGION us-west-1
 
-WORKDIR /workdir
-
 RUN apt-get update && \
     apt-get -y install less zip curl make && \
     apt-get clean
