@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -eo pipefail
+
+cd "${DIR}" || exit
+
+npm i
+
+# shellcheck disable=SC2048
+$*

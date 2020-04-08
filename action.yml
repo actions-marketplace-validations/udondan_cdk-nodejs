@@ -1,0 +1,23 @@
+---
+name: CDK NodeJS Deploy
+description: Deploy AWS CDK app
+author: deemes79@googlemail.com
+branding:
+  icon: upload-cloud
+  color: orange
+runs:
+  using: docker
+  image: Dockerfile
+inputs:
+  AWS_ACCESS_KEY_ID:
+    description: AWS access key associated with an IAM user
+    required: true
+
+  AWS_SECRET_ACCESS_KEY:
+    description: Secret key associated with the access key
+    required: true
+
+  AWS_DEFAULT_REGION:
+    description: AWS Region to send the request to
+    required: false
+    default: us-east-1
