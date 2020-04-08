@@ -2,6 +2,40 @@
 
 set -eo pipefail
 
+# All env vars that can be passed in, are handled in two variants
+# FOO, which can be passed in by the user when running locally
+# INPUT_FOO, which is the prefixed version passed in by GitHub actions
+# The var function covers both cases. Furthermore it converts the variable to
+# a boolean, if the 2nd parameter is true
+var() {
+    local name="$1"
+    local value
+
+    if [[ "${GITHUB_ACTIONS:-}" == "true" ]]; then
+        name="INPUT_${name}"
+    fi
+    if [[ "${2:-}" = true ]]; then
+        value=$(echo "${!name:-}" | tr "[:upper:]" "[:lower:]")
+        if [[ "${value}" == "true" || "${value}" == "yes" ]]; then
+            eval "$1="'true'""
+        else
+            eval "$1="'false'""
+        fi
+    else
+        eval "$1="'${!name:-}'""
+    fi
+}
+
+var DIR
+var COMMAND
+var AWS_ACCESS_KEY_ID
+var AWS_SECRET_ACCESS_KEY
+var AWS_DEFAULT_REGION
+
+export AWS_ACCESS_KEY_ID
+export AWS_SECRET_ACCESS_KEY
+export AWS_DEFAULT_REGION
+
 echo "CDK version $(cdk version)"
 
 [ -n "${DIR}" ] && echo "Changing directory to ${DIR}" && cd "${DIR}"
