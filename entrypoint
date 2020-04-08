@@ -2,13 +2,17 @@
 
 set -eo pipefail
 
-cd "${DIR}" || exit
-
 echo "CDK version $(cdk version)"
 
+[ -n "${DIR}" ] && echo "Changing directory to ${DIR}" && cd "${DIR}"
+
+echo "Installing dependencies..."
 npm i
+
+echo "Building application"
 npm run build
 
+echo "Running ${COMMAND:-$*}"
 [ -n "${COMMAND}" ] && ${COMMAND}
 # shellcheck disable=SC2048
 [ -z "${COMMAND}" ] && $*
