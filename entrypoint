@@ -1,6 +1,7 @@
 #!/bin/bash
 
-set -eo pipefail
+set -euo pipefail
+IFS=$'\n\t'
 
 # All env vars that can be passed in, are handled in two variants
 # FOO, which can be passed in by the user when running locally
