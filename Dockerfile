@@ -10,6 +10,7 @@ RUN apt-get update && \
 
 RUN npm install -g typescript
 RUN npm install -g aws-cdk
+RUN npm list -g
 
 ADD entrypoint /entrypoint
 
