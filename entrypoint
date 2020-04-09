@@ -28,7 +28,7 @@ var() {
 }
 
 var DEBUG true
-var DIR
+var SUBDIR
 var COMMAND
 var AWS_ACCESS_KEY_ID
 var AWS_SECRET_ACCESS_KEY
@@ -44,7 +44,7 @@ fi
 
 echo "CDK version $(cdk version)"
 
-[ -n "${DIR}" ] && echo "Changing directory to ${DIR}" && cd "${DIR}"
+[ -n "${SUBDIR}" ] && echo "Changing directory to ${SUBDIR}" && cd "${SUBDIR}"
 
 echo "Installing dependencies..."
 npm i
