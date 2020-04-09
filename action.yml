@@ -7,7 +7,7 @@ branding:
   color: orange
 runs:
   using: docker
-  image: docker://udondan/cdk-nodejs:0.1.0
+  image: docker://udondan/cdk-nodejs:0.1.1
 inputs:
   AWS_ACCESS_KEY_ID:
     description: AWS access key associated with an IAM user

@@ -53,6 +53,6 @@ echo "Building application"
 npm run build
 
 echo "Running ${COMMAND:-$*}"
-[ -n "${COMMAND}" ] && ${COMMAND}
+[ -n "${COMMAND}" ] && bash -c "${COMMAND}"
 # shellcheck disable=SC2048
 [ -z "${COMMAND}" ] && $*
