@@ -36,7 +36,7 @@ jobs:
           fetch-depth: 1
 
       - name: Deploy
-        uses: udondan/cdk-nodejs-deploy@master
+        uses: udondan/cdk-nodejs-deploy@v0.1.2
         with:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -52,7 +52,7 @@ If you want to run the action against a subdirectory of the repo, you can specif
 
 ```yml
       - name: Deploy
-        uses: udondan/cdk-nodejs-deploy@master
+        uses: udondan/cdk-nodejs-deploy@v0.1.2
         with:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -63,16 +63,12 @@ By default the action will run a `deploy`. In case you want to run any other pro
 
 ```yml
       - name: Destroy
-        uses: udondan/cdk-nodejs-deploy@master
+        uses: udondan/cdk-nodejs-deploy@v0.1.2
         with:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           COMMAND: cdk destroy --force
 ```
-
-
-
-
 
 ### Running the Docker image locally
 

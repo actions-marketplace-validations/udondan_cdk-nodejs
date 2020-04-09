@@ -56,3 +56,5 @@ echo "Running ${COMMAND:-$*}"
 [ -n "${COMMAND}" ] && bash -c "${COMMAND}"
 # shellcheck disable=SC2048
 [ -z "${COMMAND}" ] && $*
+
+exit 0
