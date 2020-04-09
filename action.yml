@@ -1,5 +1,5 @@
 ---
-name: CDK NodeJS Deploy
+name: CDK NodeJS
 description: Deploy AWS CDK app
 author: deemes79@googlemail.com
 branding:
@@ -7,7 +7,7 @@ branding:
   color: orange
 runs:
   using: docker
-  image: Dockerfile
+  image: docker://udondan/cdk-nodejs:0.1.0
 inputs:
   AWS_ACCESS_KEY_ID:
     description: AWS access key associated with an IAM user
@@ -22,7 +22,15 @@ inputs:
     required: false
     default: us-east-1
 
+  SUBDIR:
+    description: Subdirectory of the repository to change to, before running the action
+    required: false
+
   COMMAND:
     description: The command to execute, defaults to deploy
     required: false
     default: cdk deploy --require-approval never
+
+  DEBUG:
+    description: Enables debug mode
+    default: false
