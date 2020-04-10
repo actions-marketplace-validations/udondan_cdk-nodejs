@@ -36,7 +36,7 @@ jobs:
           fetch-depth: 1
 
       - name: Deploy
-        uses: udondan/cdk-nodejs-deploy@v0.1.2
+        uses: udondan/cdk-nodejs@v0.1.2
         with:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -52,22 +52,22 @@ If you want to run the action against a subdirectory of the repo, you can specif
 
 ```yml
       - name: Deploy
-        uses: udondan/cdk-nodejs-deploy@v0.1.2
+        uses: udondan/cdk-nodejs@v0.1.2
         with:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           SUBDIR: some/sub/directory
 ```
 
-By default the action will run a `deploy`. In case you want to run any other process, you can specific the command:
+By default the action will run a `deploy`. In case you want to run any other process, you can specific the command via `args`:
 
 ```yml
       - name: Destroy
-        uses: udondan/cdk-nodejs-deploy@v0.1.2
+        uses: udondan/cdk-nodejs@v0.1.2
         with:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          COMMAND: cdk destroy --force
+          args: cdk destroy --force
 ```
 
 ### Running the Docker image locally
@@ -79,7 +79,7 @@ docker run -it \
     --workdir /workdir \
     -e AWS_ACCESS_KEY_ID \
     -e AWS_SECRET_ACCESS_KEY \
-    udondan/cdk-nodejs-deploy
+    udondan/cdk-nodejs@v0.1.2
 
 # DESTROY
 docker run -it \
@@ -87,7 +87,7 @@ docker run -it \
     --workdir /workdir \
     -e AWS_ACCESS_KEY_ID \
     -e AWS_SECRET_ACCESS_KEY \
-    udondan/cdk-nodejs-deploy \
+    udondan/cdk-nodejs@v0.1.2 \
     cdk destroy
 ```
 
@@ -98,7 +98,6 @@ Parameters passed per env:
 - **AWS_ACCESS_KEY_ID**: AWS access key associated with an IAM user
 - **AWS_SECRET_ACCESS_KEY**: Secret key associated with the access key
 - **AWS_DEFAULT_REGION**: AWS Region to send the request to. Default: `us-east-1`
-- **COMMAND**: The command to execute, defaults to deploy. Default: `cdk deploy --require-approval never`
 - **SUBDIR**: Subdirectory of the repository to change to, before running the action
 - **DEBUG**: If `true`, debug mode is enabled. **Might leak secrets in output**.
 
