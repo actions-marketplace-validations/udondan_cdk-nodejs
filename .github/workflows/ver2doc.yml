@@ -18,7 +18,7 @@ jobs:
         uses: udondan/ver2doc@v1.0.0
         with:
           FILE: README.md
-          PATTERN: (udondan/cdk-nodejs\@)[0-9.]+
+          PATTERN: (udondan/cdk-nodejs\@v)[0-9.]+
           REPLACE: \${1}${VERSION}
 
       - name: Update Action
