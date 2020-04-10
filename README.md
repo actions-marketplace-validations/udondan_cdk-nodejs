@@ -79,7 +79,7 @@ docker run -it \
     --workdir /workdir \
     -e AWS_ACCESS_KEY_ID \
     -e AWS_SECRET_ACCESS_KEY \
-    udondan/cdk-nodejs@v0.2.0
+    udondan/cdk-nodejs:v0.2.0
 
 # DESTROY
 docker run -it \
@@ -87,7 +87,7 @@ docker run -it \
     --workdir /workdir \
     -e AWS_ACCESS_KEY_ID \
     -e AWS_SECRET_ACCESS_KEY \
-    udondan/cdk-nodejs@v0.2.0 \
+    udondan/cdk-nodejs:v0.2.0 \
     cdk destroy
 ```
 
