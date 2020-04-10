@@ -47,6 +47,7 @@ echo "CDK version $(cdk version)"
 [ -n "${SUBDIR}" ] && echo "Changing directory to ${SUBDIR}" && cd "${SUBDIR}"
 
 echo "Installing dependencies..."
+[ -n "${SUBDIR}" ] && [ -f "../package.json" ] && (cd .. && npm i)
 npm i
 
 echo "Building application"
