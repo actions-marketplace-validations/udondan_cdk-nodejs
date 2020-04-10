@@ -36,7 +36,7 @@ jobs:
           fetch-depth: 1
 
       - name: Deploy
-        uses: udondan/cdk-nodejs@v0.1.2
+        uses: udondan/cdk-nodejs@v0.2.0
         with:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -52,7 +52,7 @@ If you want to run the action against a subdirectory of the repo, you can specif
 
 ```yml
       - name: Deploy
-        uses: udondan/cdk-nodejs@v0.1.2
+        uses: udondan/cdk-nodejs@v0.2.0
         with:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -63,7 +63,7 @@ By default the action will run a `deploy`. In case you want to run any other pro
 
 ```yml
       - name: Destroy
-        uses: udondan/cdk-nodejs@v0.1.2
+        uses: udondan/cdk-nodejs@v0.2.0
         with:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -79,7 +79,7 @@ docker run -it \
     --workdir /workdir \
     -e AWS_ACCESS_KEY_ID \
     -e AWS_SECRET_ACCESS_KEY \
-    udondan/cdk-nodejs@v0.1.2
+    udondan/cdk-nodejs@v0.2.0
 
 # DESTROY
 docker run -it \
@@ -87,7 +87,7 @@ docker run -it \
     --workdir /workdir \
     -e AWS_ACCESS_KEY_ID \
     -e AWS_SECRET_ACCESS_KEY \
-    udondan/cdk-nodejs@v0.1.2 \
+    udondan/cdk-nodejs@v0.2.0 \
     cdk destroy
 ```
 
