@@ -1,4 +1,4 @@
-HELL := /bin/bash
+SHELL := /bin/bash
 
 IMAGE_NAME := udondan/cdk-nodejs-deploy
 IMAGE_VERSION := $(shell cat VERSION)
